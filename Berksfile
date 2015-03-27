@@ -3,6 +3,20 @@ source "https://supermarket.chef.io"
 # chef
 cookbook 'chef-dk'
 
+# languages
+cookbook 'php'
+
+# midleware
+cookbook 'mongodb'
+cookbook 'mysql'
+cookbook 'nginx'
+cookbook 'php-fpm'
+cookbook 'sqlite'
+
+# security
+cookbook 'iptables'
+cookbook 'selinux'
+
 # tools
 cookbook 'git'
 cookbook 'man'
