@@ -2,13 +2,18 @@
   "sandbox": {
     "subdomain": "sandbox"
   }
+  ,"proxy-sandbox": {
+    "subdomain": "mojolicious"
+    ,"port": 10080
+  }
   ,"run_list":[
     "recipe[iptables::disabled]"
     ,"recipe[selinux::disabled]"
     ,"recipe[php]"
     ,"recipe[nginx]"
     ,"recipe[php-fpm]"
-    ,"recipe[webapp::sandbox]"
     ,"recipe[webapp]"
+    ,"recipe[webapp::sandbox]"
+    ,"recipe[webapp::proxy]"
   ]
 }
