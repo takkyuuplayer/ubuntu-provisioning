@@ -15,3 +15,11 @@
     mode 0775
   end
 end
+
+%w(
+libreadline-dev
+).each do |pkg|
+  package pkg do
+    action :upgrade
+  end
+end

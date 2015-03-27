@@ -1,10 +1,14 @@
 {
-  "run_list":[
+  "sandbox": {
+    "subdomain": "sandbox"
+  }
+  ,"run_list":[
     "recipe[iptables::disabled]"
     ,"recipe[selinux::disabled]"
     ,"recipe[php]"
     ,"recipe[nginx]"
     ,"recipe[php-fpm]"
+    ,"recipe[webapp::sandbox]"
     ,"recipe[webapp]"
   ]
 }
