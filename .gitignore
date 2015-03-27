@@ -1,0 +1,4 @@
+/cookbooks/*
+/vendor/bundle
+!.gitkeep
+.vagrant
