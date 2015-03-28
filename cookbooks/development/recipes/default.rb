@@ -17,6 +17,7 @@
 end
 
 %w(
+libffi-dev
 libreadline-dev
 ).each do |pkg|
   package pkg do
