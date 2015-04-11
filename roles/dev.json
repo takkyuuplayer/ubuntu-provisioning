@@ -6,6 +6,7 @@
   "run_list": [
     "recipe[build-essential]",
     "recipe[git]",
+    "recipe[heroku-toolbelt]",
     "recipe[man]",
     "recipe[mercurial]",
     "recipe[subversion]",

@@ -1,27 +1,19 @@
 source "https://supermarket.chef.io"
 
-# chef
 cookbook 'chef-dk'
-
-# languages
-cookbook 'php'
-
-# midleware
+cookbook 'git'
+cookbook 'heroku-toolbelt', '~> 0.1.0'
+cookbook 'iptables'
+cookbook 'man'
+cookbook 'mercurial'
 cookbook 'mongodb'
 cookbook 'mysql'
 cookbook 'nginx'
+cookbook 'php'
 cookbook 'php-fpm'
-cookbook 'sqlite'
-
-# security
-cookbook 'iptables'
-cookbook 'selinux'
-
-# tools
-cookbook 'git'
-cookbook 'man'
-cookbook 'mercurial'
 cookbook 'screen'
+cookbook 'selinux'
+cookbook 'sqlite'
 cookbook 'subversion', '~> 1.3.0'
 cookbook 'tmux'
 cookbook 'vim'
