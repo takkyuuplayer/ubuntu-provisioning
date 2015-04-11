@@ -17,8 +17,13 @@
 end
 
 %w(
-libffi-dev
+bison
+libffi6 libffi6-dbg libffi-dev
 libreadline-dev
+libssl-dev
+libxml2 libxml2-dbg libxml2-dev
+openssl
+re2c
 ).each do |pkg|
   package pkg do
     action :upgrade
