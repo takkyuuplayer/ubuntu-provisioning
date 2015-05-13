@@ -16,6 +16,7 @@ DEPENDENCIES
   subversion (~> 1.3.0)
   tmux
   vim
+  vsftpd
   zsh
 
 GRAPH
@@ -97,6 +98,7 @@ GRAPH
     windows (~> 1.10)
   tmux (1.4.0)
   vim (1.1.2)
+  vsftpd (0.0.1)
   windows (1.36.6)
     chef_handler (>= 0.0.0)
   xml (1.2.13)
