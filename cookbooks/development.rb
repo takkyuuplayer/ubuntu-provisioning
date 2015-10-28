@@ -42,3 +42,14 @@ zsh
     action :install
   end
 end
+
+%w(
+php5
+).each do |pkg|
+  run_command("apt-get -s build-dep #{pkg} | grep 'Inst' | awk '{print $2}'").stdout.each_line do |dep|
+    package dep.chomp do
+      action :install
+    end
+  end
+end
+
