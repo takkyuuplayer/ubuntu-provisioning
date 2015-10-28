@@ -1,3 +1,5 @@
+include_recipe 'selinux::disabled'
+
 package 'nginx' do
   action :install
 end
