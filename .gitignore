@@ -1,8 +1,2 @@
-.rake_test_cache
-berks-cookbooks
-
-###
-# Ignore Chef key files and secrets
-###
-.chef/*.pem
-.chef/encrypted_data_bag_secret
+vendor/bundle/
+.vagrant
