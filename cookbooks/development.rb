@@ -30,7 +30,7 @@ libreadline-dev
 libssl-dev
 libxml2 libxml2-dbg libxml2-dev
 openssl
-php5
+php5 php5-cli
 re2c
 sqlite3
 tmux
