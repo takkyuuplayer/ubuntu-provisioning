@@ -21,6 +21,8 @@ end
 
 %w(
 bison
+build-essential
+curl
 git
 libffi6 libffi6-dbg libffi-dev
 libmcrypt-dev
@@ -28,6 +30,7 @@ libreadline-dev
 libssl-dev
 libxml2 libxml2-dbg libxml2-dev
 openssl
+php5
 re2c
 sqlite3
 tmux
