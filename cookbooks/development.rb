@@ -11,6 +11,7 @@ require 'itamae/resource/package'
 end
 
 execute 'apt-get-upgrade' do
+  action :nothing
   command 'apt-get upgrade -y'
 end
 
@@ -20,6 +21,7 @@ end
 
 %w(
 bison
+git
 libffi6 libffi6-dbg libffi-dev
 libmcrypt-dev
 libreadline-dev
@@ -27,6 +29,11 @@ libssl-dev
 libxml2 libxml2-dbg libxml2-dev
 openssl
 re2c
+sqlite3
+tmux
+vim
+whois
+zsh
 ).each do |pkg|
   package pkg do
     action :install
