@@ -1,0 +1,16 @@
+server {
+    listen       80;
+    server_name <%= @subdomain %>.takkyuuplayer.vagrant;
+    index       index.php index.html index.htm;
+    root /web/<%= @subdomain %>;
+    charset     utf-8;
+    access_log  /var/log/nginx/vh/<%= @subdomain %>-access.local.log;
+    error_log   /var/log/nginx/vh/<%= @subdomain %>-error.local.log;
+
+    location ~ \.php$ {
+       fastcgi_pass   unix:/var/run/php5-fpm.sock;
+       fastcgi_index  index.php;
+       fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+       include        fastcgi_params;
+    }
+}
