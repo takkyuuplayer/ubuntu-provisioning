@@ -2,5 +2,8 @@
     "php": {
         "subdomain": "php"
     }
+    ,"proxy": {
+      "subdomain": "proxy"
+      ,"port": 8000
+    }
 }
-
