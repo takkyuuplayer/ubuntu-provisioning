@@ -8,4 +8,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.hostname = "ubuntu-vagrant"
   config.vm.network "private_network", ip: "192.168.33.101"
+
+  config.vm.provision :itamae do |conf|
+    conf.sudo = true
+    conf.recipes = ['./cookbooks/development.rb']
+  end
 end
