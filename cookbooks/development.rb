@@ -1,6 +1,8 @@
 require 'itamae'
 require 'itamae/resource/package'
 
+include_recipe 'swap.rb'
+
 %w(/workspace).each do |dir|
   directory dir do
     action :create
