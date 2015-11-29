@@ -39,6 +39,7 @@ sqlite3
 tmux
 vim
 whois
+zip
 zsh
 ).each do |pkg|
   package pkg do
