@@ -31,6 +31,7 @@ libmcrypt-dev
 libreadline-dev
 libssl-dev
 libxml2 libxml2-dbg libxml2-dev
+locales
 mysql-server-5.6 mysql-client-5.6
 openssl
 php5 php5-cli php5-dev
