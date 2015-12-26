@@ -41,7 +41,7 @@ libssl-dev
 libt1-dev
 libtidy-dev
 libxslt1.1 libxslt1-dev
-libxml2 libxml2-dbg libxml2-dev
+libxml2 libxml2-dbg libxml2-dev libxml2-utils
 locales
 mysql-server-5.6 mysql-client-5.6
 openssl
