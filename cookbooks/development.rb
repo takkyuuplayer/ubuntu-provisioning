@@ -22,14 +22,25 @@ execute 'apt-get update' do
 end
 
 %w(
+autoconf
 bison
 build-essential
 curl
-git
+git git-core
+libbz2-dev
+libcurl4-openssl-dev
 libffi6 libffi6-dbg libffi-dev
+libgmp-dev
+libjpeg-dev
+libltdl-dev
 libmcrypt-dev
+libpng-dev
+libpspell-dev
 libreadline-dev
 libssl-dev
+libt1-dev
+libtidy-dev
+libxslt1.1 libxslt1-dev
 libxml2 libxml2-dbg libxml2-dev
 locales
 mysql-server-5.6 mysql-client-5.6
