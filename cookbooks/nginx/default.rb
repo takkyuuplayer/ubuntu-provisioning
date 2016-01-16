@@ -9,8 +9,8 @@ end
 %w(/web).each do |dir|
   directory dir do
     action :create
-    owner "vagrant"
-    group "vagrant"
+    owner "root"
+    group node[:user][:group]
     mode "775"
   end
 end

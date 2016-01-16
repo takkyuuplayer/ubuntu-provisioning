@@ -1,15 +1,13 @@
 include_recipe 'default.rb';
 
-%w(/web).each do |dir|
-  directory "#{dir}/#{node["proxy"][:subdomain]}" do
+directory "/web/#{node["proxy"][:app_name]}" do
     action :create
-    owner "vagrant"
-    group "vagrant"
+    owner "root"
+    group node[:user][:group]
     mode "775"
-  end
 end
 
-template "/etc/nginx/sites-available/#{node[:proxy][:subdomain]}-proxy.vh" do
+template "/etc/nginx/sites-available/#{node[:proxy][:app_name]}-proxy.vh" do
   source "templates/proxy.vh.erb"
   mode "644"
   owner 'root'
@@ -17,12 +15,13 @@ template "/etc/nginx/sites-available/#{node[:proxy][:subdomain]}-proxy.vh" do
   action :create
   notifies :restart, 'service[nginx]'
   variables({
-    :subdomain => node[:proxy][:subdomain],
-    :port      => node[:proxy][:port],
+    :app_name => node[:proxy][:app_name],
+    :fqdn     => node[:proxy][:fqdn],
+    :port     => node[:proxy][:port],
   })
 end
 
-link "/etc/nginx/sites-enabled/#{node[:proxy][:subdomain]}-proxy.vh" do
+link "/etc/nginx/sites-enabled/#{node[:proxy][:app_name]}-proxy.vh" do
   action :create
-  to "/etc/nginx/sites-available/#{node[:proxy][:subdomain]}-proxy.vh"
+  to "/etc/nginx/sites-available/#{node[:proxy][:app_name]}-proxy.vh"
 end

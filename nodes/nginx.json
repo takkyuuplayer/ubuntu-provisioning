@@ -1,9 +1,14 @@
 {
-    "php": {
-        "subdomain": "php"
-    }
-    ,"proxy": {
-      "subdomain": "proxy"
-      ,"port": 8000
-    }
+  "user": {
+    "name": "vagrant",
+    "group": "contentsuser"
+  },
+  "php": {
+    "subdomain": "php"
+  },
+  "proxy": {
+    "app_name": "proxy",
+    "fqdn": "proxy.takkyuuplayer.vagrant",
+    "port": 8000
+  }
 }
