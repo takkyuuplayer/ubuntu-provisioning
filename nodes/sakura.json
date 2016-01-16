@@ -1,12 +1,22 @@
 {
-    "user": {
-        "name": "takkyuuplayer",
-        "group": "contentsuser"
-    },
-    "anyenv": {
-        "anyenv_root": "/usr/local/anyenv",
-        "install_versions": {
-            "rbenv": ["2.3.0"]
-        }
+  "user": {
+    "name": "takkyuuplayer",
+    "group": "contentsuser"
+  },
+  "anyenv": {
+    "anyenv_root": "/usr/local/anyenv",
+    "install_versions": {
+      "rbenv": ["2.3.0"]
     }
+  },
+  "proxy": {
+    "app_name": "homepage",
+    "fqdn": "www.takkyuuplayer.com",
+    "port": 4567
+  },
+  "supervisor": {
+    "app_name": "homepage",
+    "command": "/usr/local/anyenv/envs/rbenv/shims/bundle exec -- unicorn -c unicorn.rb -E production",
+    "directory": "/workspace/deployment/homepage/current"
+  }
 }
