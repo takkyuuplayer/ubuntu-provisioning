@@ -18,9 +18,7 @@ libtidy-dev
 libxslt1.1 libxslt1-dev
 libxml2 libxml2-dbg libxml2-dev libxml2-utils
 locales
-mysql-server-5.6 mysql-client-5.6
 openssl
-php5 php5-cli php5-dev
 re2c
 ).each do |pkg|
   package pkg do
@@ -28,3 +26,8 @@ re2c
   end
 end
 
+execute 'locale' do
+  command <<-COMMAND
+    locale-gen en_US en_US.UTF-8 ja_JP.UTF-8
+  COMMAND
+end
