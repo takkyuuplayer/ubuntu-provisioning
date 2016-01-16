@@ -8,4 +8,3 @@ execute 'swap' do
   COMMAND
   not_if 'grep -q "swapfile" /etc/fstab'
 end
-
