@@ -1,17 +1,11 @@
 {
     "anyenv": {
         "anyenv_root": "/usr/local/anyenv",
-        "install_envs": [
-            "ndenv",
-            "phpenv",
-            "plenv",
-            "rbenv"
-        ],
-        "install_versions": [{
+        "install_versions": {
             "ndenv": ["v5.4.1"],
             "phpenv": ["7.0.2"],
             "plenv": ["5.22.0"],
             "rbenv": ["2.3.0"]
-        }]
+        ]
     }
 }
