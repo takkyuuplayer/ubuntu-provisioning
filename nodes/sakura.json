@@ -1,4 +1,8 @@
 {
+    "user": {
+        "name": "takkyuuplayer",
+        "group": "contentsuser"
+    },
     "anyenv": {
         "anyenv_root": "/usr/local/anyenv",
         "install_versions": {
