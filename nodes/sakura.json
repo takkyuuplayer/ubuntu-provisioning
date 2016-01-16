@@ -1,0 +1,11 @@
+{
+  "anyenv": {
+    "anyenvr_root": "/usr/local/anyenv",
+    "install_envs": [
+      "rbenv"
+    ],
+    "install_versions": [{
+      "rbenv": ["2.3.0"]
+    }]
+  }
+}
