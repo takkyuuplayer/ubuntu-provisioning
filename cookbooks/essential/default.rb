@@ -6,6 +6,7 @@ locales
 sqlite3
 tmux
 vim
+wget
 whois
 zip
 zsh
