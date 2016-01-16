@@ -1,6 +1,6 @@
 {
   "anyenv": {
-    "anyenvr_root": "/usr/local/anyenv",
+    "anyenv_root": "/usr/local/anyenv",
     "install_envs": [
       "rbenv"
     ],
