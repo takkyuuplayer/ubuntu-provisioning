@@ -17,17 +17,10 @@ libt1-dev
 libtidy-dev
 libxslt1.1 libxslt1-dev
 libxml2 libxml2-dbg libxml2-dev libxml2-utils
-locales
 openssl
 re2c
 ).each do |pkg|
   package pkg do
     action :install
   end
-end
-
-execute 'locale' do
-  command <<-COMMAND
-    locale-gen en_US en_US.UTF-8 ja_JP.UTF-8
-  COMMAND
 end
