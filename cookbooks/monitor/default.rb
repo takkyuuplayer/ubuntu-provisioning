@@ -1,3 +1,5 @@
+include_recipe 'apache2.rb';
+
 execute 'dpkg zabbix' do
   cwd '/tmp'
   command <<-CMD
@@ -9,7 +11,6 @@ apt-get update
 end
 
 %w(
-apache2
 zabbix-agent
 zabbix-frontend-php
 zabbix-server-mysql
@@ -19,6 +20,3 @@ zabbix-server-mysql
   end
 end
 
-service 'apache2' do
-  action [:enable, :start]
-end
