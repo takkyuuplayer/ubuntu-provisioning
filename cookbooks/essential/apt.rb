@@ -1,5 +1,9 @@
 yyyymmdd = Time.now.strftime("%Y%m%d")
 
+execute 'dpkg --configure -a' do
+  command "dpkg --configure -a"
+end
+
 execute 'apt-get update' do
   command "apt-get update -y && touch /tmp/apt-get-update-#{yyyymmdd}"
   not_if "test -e /tmp/apt-get-update-#{yyyymmdd}"
