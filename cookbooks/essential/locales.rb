@@ -4,8 +4,12 @@ locales
   package pkg
 end
 
-execute 'locale' do
-  command <<-COMMAND
-    locale-gen en_US en_US.UTF-8 ja_JP.UTF-8
-  COMMAND
+%w(
+  en_US en_US.utf8
+  ja_JP.utf8
+).each do |locale|
+  execute "locale-gen #{locale}" do
+    command "locale-gen #{locale}"
+    not_if "locale -a | grep #{locale}$"
+  end
 end
