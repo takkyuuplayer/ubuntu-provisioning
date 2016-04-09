@@ -31,3 +31,31 @@ file "/etc/profile.d/anyenv.sh" do
 source "#{node[:anyenv][:anyenvrc_file]}"
 EOF
 end
+
+node['anyenv']['install_versions'].each do |env, versions|
+  versions.each do |version|
+    execute "Install #{env}-#{version}" do
+      user "root"
+      command <<-CMD
+        . #{node[:anyenv][:anyenvrc_file]};
+        #{env} install #{version}
+      CMD
+      not_if <<-CMD
+        . #{node[:anyenv][:anyenvrc_file]};
+        #{env} versions | grep ' #{version}'
+      CMD
+    end
+  end
+
+  execute "Set #{env}-#{versions.first} as global" do
+    user "root"
+    command <<-CMD
+      . #{node[:anyenv][:anyenvrc_file]};
+      #{env} global #{versions.first}
+    CMD
+    not_if <<-CMD
+      . #{node[:anyenv][:anyenvrc_file]};
+      #{env} versions | grep '* #{versions.first}'
+    CMD
+  end
+end
