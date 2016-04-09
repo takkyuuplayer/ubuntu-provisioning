@@ -33,6 +33,18 @@ EOF
 end
 
 node['anyenv']['install_versions'].each do |env, versions|
+  execute "Install #{env}" do
+    user "root"
+    command <<-CMD
+      . #{node[:anyenv][:anyenvrc_file]};
+      anyenv install #{env}
+    CMD
+    not_if <<-CMD
+      . #{node[:anyenv][:anyenvrc_file]};
+      test which #{env}
+    CMD
+  end
+
   versions.each do |version|
     execute "Install #{env}-#{version}" do
       user "root"
