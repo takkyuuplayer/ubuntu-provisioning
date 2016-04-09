@@ -33,7 +33,8 @@ EOF
 end
 
 node['anyenv']['install_versions'].each do |env, versions|
-  execute "Install #{env}" do
+
+  execute "anyenv install #{env}" do
     user "root"
     command <<-CMD
       . #{node[:anyenv][:anyenvrc_file]};
@@ -41,12 +42,12 @@ node['anyenv']['install_versions'].each do |env, versions|
     CMD
     not_if <<-CMD
       . #{node[:anyenv][:anyenvrc_file]};
-      test which #{env}
+      which #{env}
     CMD
   end
 
   versions.each do |version|
-    execute "Install #{env}-#{version}" do
+    execute "#{env} install #{version}" do
       user "root"
       command <<-CMD
         . #{node[:anyenv][:anyenvrc_file]};
@@ -59,7 +60,7 @@ node['anyenv']['install_versions'].each do |env, versions|
     end
   end
 
-  execute "Set #{env}-#{versions.first} as global" do
+  execute "#{env} global #{versions.first}" do
     user "root"
     command <<-CMD
       . #{node[:anyenv][:anyenvrc_file]};
