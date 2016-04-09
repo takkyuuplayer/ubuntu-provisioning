@@ -1,4 +1,4 @@
-include_recipe "anyenv::system"
+#include_recipe "anyenv::system"
 
 file "/usr/local/etc/anyenvrc" do
   owner "root"

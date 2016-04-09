@@ -1,16 +1,9 @@
-GIT
-  remote: https://github.com/takkyuuplayer/itamae-plugin-recipe-anyenv.git
-  revision: 2e612d1fc48dfa30b45cb843f12abde9cd2c0359
-  specs:
-    itamae-plugin-recipe-anyenv (0.2.0)
-      itamae (~> 1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
     ansi (1.5.0)
     hashie (3.4.3)
-    itamae (1.9.2)
+    itamae (1.9.6)
       ansi
       hashie
       schash (~> 0.1.0)
@@ -20,13 +13,13 @@ GEM
       itamae
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (3.0.2)
+    net-ssh (3.1.1)
     net-telnet (0.1.1)
     schash (0.1.2)
     sfl (2.2)
-    specinfra (2.50.0)
+    specinfra (2.56.0)
       net-scp
-      net-ssh (>= 2.7, < 3.1)
+      net-ssh (>= 2.7, < 4.0)
       net-telnet
       sfl
     thor (0.19.1)
@@ -36,7 +29,6 @@ PLATFORMS
 
 DEPENDENCIES
   itamae
-  itamae-plugin-recipe-anyenv!
   itamae-plugin-recipe-selinux
 
 BUNDLED WITH
