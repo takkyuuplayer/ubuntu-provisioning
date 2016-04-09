@@ -5,6 +5,7 @@
     },
     "anyenv": {
         "anyenv_root": "/usr/local/anyenv",
+        "anyenvrc_file": "/usr/local/etc/anyenvrc",
         "install_versions": {
             "ndenv": ["v5.4.1"],
             "phpenv": ["7.0.2"],

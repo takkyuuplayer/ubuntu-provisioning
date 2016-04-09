@@ -1,6 +1,16 @@
-#include_recipe "anyenv::system"
+git node['anyenv']['anyenv_root'] do
+  repository 'https://github.com/riywo/anyenv'
+end
 
-file "/usr/local/etc/anyenvrc" do
+git "#{node['anyenv']['anyenv_root']}/plugins/anyenv-update" do
+  repository 'https://github.com/znz/anyenv-update'
+end
+
+git "#{node['anyenv']['anyenv_root']}/plugins/anyenv-git" do
+  repository 'https://github.com/znz/anyenv-git'
+end
+
+file node['anyenv']['anyenvrc_file'] do
   owner "root"
   group "root"
   action :create
@@ -18,6 +28,6 @@ file "/etc/profile.d/anyenv.sh" do
   action :create
   mode "0644"
   content <<EOF
-source "/usr/local/etc/anyenvrc"
+source "#{node[:anyenv][:anyenvrc_file]}"
 EOF
 end

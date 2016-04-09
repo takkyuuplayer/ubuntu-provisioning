@@ -4,11 +4,11 @@ bundler
   execute "Install #{mod}" do
     user "root"
     command <<-CMD
-      . "/usr/local/etc/anyenvrc"
+      . #{node[:anyenv][:anyenvrc_file]};
       gem install #{mod}
     CMD
     not_if <<-CMD
-      . "/usr/local/etc/anyenvrc"
+      . #{node[:anyenv][:anyenvrc_file]};
       gem contents #{mod}
     CMD
   end
