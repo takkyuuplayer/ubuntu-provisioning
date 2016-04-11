@@ -15,10 +15,12 @@ libreadline-dev
 libssl-dev
 libt1-dev
 libtidy-dev
-libxslt1.1 libxslt1-dev
 libxml2 libxml2-dbg libxml2-dev libxml2-utils
+libxslt1.1 libxslt1-dev
 openssl
+python-dev python-pip python3-dev python3-pip
 re2c
+software-properties-common
 ).each do |pkg|
   package pkg do
     action :install

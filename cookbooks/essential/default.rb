@@ -15,3 +15,5 @@ zsh
     action :install
   end
 end
+
+include_recipe 'neovim.rb'
