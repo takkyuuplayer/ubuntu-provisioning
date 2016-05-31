@@ -13,6 +13,7 @@ end
 %w{
   App::Ack
   Carton
+  ExtUtils::MakeMaker
   Perl::Tidy
 }.each do |mod|
   execute "Install #{mod}" do
