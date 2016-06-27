@@ -1,16 +1,10 @@
-execute 'add-apt-repository ppa:neovim-ppa/unstable' do
+execute 'Install certbot-auto' do
+  cwd '/tmp'
   command <<-CMD
-    add-apt-repository ppa:neovim-ppa/unstable -y &&
-    apt-get update -y
+    wget https://dl.eff.org/certbot-auto &&
+    chmod a+x certbot-auto &&
+    mv certbot-auto /usr/local/bin/certbot-auto
   CMD
-  not_if 'dpkg -l | neovim'
-end
-
-%w(
-neovim
-).each do |pkg|
-  package pkg do
-    action :install
-  end
+  not_if 'which certbot-auto'
 end
 
