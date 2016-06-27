@@ -6,5 +6,5 @@ execute 'swap' do
     swapon /swapfile &&
     echo '/swapfile none swap defaults 0 0' >> /etc/fstab
   COMMAND
-  not_if 'grep -q "swapfile" /etc/fstab'
+  not_if 'test -f /swapfile'
 end
