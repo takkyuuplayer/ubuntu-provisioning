@@ -18,6 +18,7 @@ template "/etc/nginx/sites-available/#{node[:proxy][:app_name]}-proxy.vh" do
     :app_name => node[:proxy][:app_name],
     :fqdn     => node[:proxy][:fqdn],
     :port     => node[:proxy][:port],
+    :ssl      => node[:proxy][:ssl],
   })
 end
 
