@@ -10,5 +10,11 @@
     "app_name": "proxy",
     "fqdn": "proxy.takkyuuplayer.vagrant",
     "port": 8000
+  },
+  "nginx": {
+    "ssl": {
+      "ssl_certificate": "/etc/ssl/private/server.crt",
+      "ssl_certificate_key": "/etc/ssl/private/server.key"
+    }
   }
 }
