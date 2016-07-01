@@ -17,7 +17,7 @@ end
   end
 end
 
-template "/etc/nginx/sites-available/#{node[:php][:subdomain]}-php.vh" do
+template "/etc/nginx/sites-available/#{node[:php][:app_name]}-php.vh" do
   source "templates/php.vh.erb"
   mode "644"
   owner 'root'
@@ -25,11 +25,13 @@ template "/etc/nginx/sites-available/#{node[:php][:subdomain]}-php.vh" do
   action :create
   notifies :restart, 'service[nginx]'
   variables({
-    :subdomain => node[:php][:subdomain],
+    :fqdn => node[:php][:fqdn],
+    :ssl  => node[:php][:ssl],
+    :app_name => node[:php][:app_name]
   })
 end
 
-link "/etc/nginx/sites-enabled/#{node[:php][:subdomain]}-php.vh" do
+link "/etc/nginx/sites-enabled/#{node[:php][:app_name]}-php.vh" do
   action :create
-  to "/etc/nginx/sites-available/#{node[:php][:subdomain]}-php.vh"
+  to "/etc/nginx/sites-available/#{node[:php][:app_name]}-php.vh"
 end

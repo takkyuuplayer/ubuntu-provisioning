@@ -4,7 +4,12 @@
     "group": "contentsuser"
   },
   "php": {
-    "subdomain": "php"
+    "app_name": "php",
+    "fqdn": "php.takkyuuplayer.vagrant",
+    "ssl": {
+      "ssl_certificate": "/etc/ssl/private/server.crt",
+      "ssl_certificate_key": "/etc/ssl/private/server.key"
+    }
   },
   "proxy": {
     "app_name": "proxy",
