@@ -1,7 +1,9 @@
 %w(
 curl
 emacs
-git git-core
+git
+git-core
+htop
 locales
 sqlite3
 tmux

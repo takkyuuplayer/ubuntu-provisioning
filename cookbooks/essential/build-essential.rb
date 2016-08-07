@@ -1,12 +1,24 @@
 %w(
 autoconf
+automake
+autotools-dev
+binutils
 bison
 build-essential
+cython
 dialog
+g++
 libbz2-dev
+libcunit1-dev
 libcurl4-openssl-dev
-libffi6 libffi6-dbg libffi-dev
+libev-dev
+libevent-dev
+libffi-dev
+libffi6
+libffi6-dbg
 libgmp-dev
+libjansson-dev
+libjemalloc-dev
 libjpeg-dev
 libltdl-dev
 libmcrypt-dev
@@ -16,12 +28,25 @@ libreadline-dev
 libssl-dev
 libt1-dev
 libtidy-dev
-libxml2 libxml2-dbg libxml2-dev libxml2-utils
-libxslt1.1 libxslt1-dev
+libtool
+libxml2
+libxml2-dbg
+libxml2-dev
+libxml2-utils
+libxslt1-dev
+libxslt1.1
+make
 openssl
-python-dev python-pip python3-dev python3-pip python-virtualenv
+pkg-config
+python-dev
+python-pip
+python-setuptools
+python-virtualenv
+python3-dev
+python3-pip
 re2c
 software-properties-common
+zlib1g-dev
 ).each do |pkg|
   package pkg do
     action :install
