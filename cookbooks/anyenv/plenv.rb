@@ -11,7 +11,6 @@ execute "Install CPANM" do
 end
 
 %w{
-  App::Ack
   Carton
   ExtUtils::MakeMaker
   Perl::Tidy
