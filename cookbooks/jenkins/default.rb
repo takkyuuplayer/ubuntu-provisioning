@@ -7,10 +7,19 @@ execute 'apt-key add' do
   not_if 'test -f /etc/apt/sources.list.d/jenkins.list'
 end
 
-%w(
-jenkins
-).each do |pkg|
-  package pkg do
-    action :install
-  end
+package 'jenkins' do
+  action :install
+end
+
+service 'jenkins' do
+  action [:enable, :start]
+end
+
+template '/etc/default/jenkins' do
+  source "templates/jenkins.erb"
+  mode "644"
+  owner 'root'
+  group 'root'
+  action :create
+  notifies :restart, 'service[jenkins]'
 end
