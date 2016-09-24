@@ -3,7 +3,7 @@ execute 'add-apt-repository ppa:neovim-ppa/unstable' do
     add-apt-repository ppa:neovim-ppa/unstable -y &&
     apt-get update -y
   CMD
-  not_if 'dpkg -l | neovim'
+  not_if 'dpkg -l | grep neovim'
 end
 
 %w(
