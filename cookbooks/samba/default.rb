@@ -2,7 +2,7 @@ package 'samba' do
   action :install
 end
 
-service 'samba' do
+service 'smbd' do
   action [:enable, :start]
 end
 
@@ -12,7 +12,7 @@ template '/etc/samba/smb.conf' do
   owner 'root'
   group 'root'
   action :create
-  notifies :restart, 'service[samba]'
+  notifies :restart, 'service[smbd]'
 end
 
 execute 'prepare smbpasswd' do
