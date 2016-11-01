@@ -1,6 +1,6 @@
 {
     "user": {
-        "name": "vagrant",
+        "name": "ubuntu",
         "group": "contentsuser"
     },
     "anyenv": {

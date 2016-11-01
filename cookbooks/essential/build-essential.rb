@@ -26,7 +26,6 @@ libpng-dev
 libpspell-dev
 libreadline-dev
 libssl-dev
-libt1-dev
 libtidy-dev
 libtool
 libxml2
