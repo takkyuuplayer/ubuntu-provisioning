@@ -1,10 +1,19 @@
-#!/usr/bin/ruby
-# -*- coding:utf-8 -*-
-
-%w(
-mysql-server-5.6 mysql-client-5.6
-).each do |pkg|
-  package pkg do
-    action :install
-  end
+%w{
+  libmysqlclient-dev
+  mysql-client
+  mysql-common
+  mysql-server
+}.each do |pkg|
+  package pkg
 end
+
+service "mysql" do
+  action [:enable, :start]
+end
+
+execute "Create time zones" do
+  command <<-CMD
+    mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot mysql
+  CMD
+end
+
