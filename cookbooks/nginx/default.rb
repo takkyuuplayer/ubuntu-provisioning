@@ -7,12 +7,12 @@ EOF
   not_if 'ls -al /etc/apt/sources.list.d/ | grep nginx'
 end
 
-service 'nginx' do
-  action [:enable, :start]
-end
-
 package 'nginx' do
   action :install
+end
+
+service 'nginx' do
+  action [:enable, :start]
 end
 
 %w(/web).each do |dir|

@@ -1,4 +1,4 @@
-%w(/workspace).each do |dir|
+%w(/srv/work).each do |dir|
   directory dir do
     action :create
     owner node[:user][:nane]
