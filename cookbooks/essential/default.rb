@@ -4,6 +4,7 @@ emacs
 git
 git-core
 htop
+jq
 locales
 sqlite3
 tmux
