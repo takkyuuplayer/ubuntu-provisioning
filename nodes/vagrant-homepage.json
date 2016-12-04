@@ -1,16 +1,12 @@
 {
   "user": {
     "name": "vagrant",
-    "group": "contentsuser"
+    "group": "contentsuser",
+    "linger": true
   },
   "proxy": {
     "app_name": "homepage",
     "fqdn": "homepage.takkyuuplayer.vagrant",
     "port": 4567
-  },
-  "supervisor": {
-    "app_name": "homepage",
-    "command": "/usr/local/anyenv/envs/rbenv/shims/bundle exec -- unicorn -c unicorn.rb -E production",
-    "directory": "/workspace/deployment/homepage/current"
   }
 }

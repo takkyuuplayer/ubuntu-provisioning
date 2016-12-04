@@ -1,13 +1,16 @@
 {
   "user": {
     "name": "takkyuuplayer",
-    "group": "contentsuser"
+    "group": "contentsuser",
+    "linger": true
   },
   "anyenv": {
     "anyenv_root": "/usr/local/anyenv",
     "anyenvrc_file": "/usr/local/etc/anyenvrc",
     "install_versions": {
-      "rbenv": ["2.3.0"]
+      "rbenv": [
+        "2.3.0"
+      ]
     }
   },
   "proxy": {
