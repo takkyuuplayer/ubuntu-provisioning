@@ -21,10 +21,5 @@
       "ssl_certificate": "/etc/letsencrypt/live/www.takkyuuplayer.com/fullchain.pem",
       "ssl_certificate_key": "/etc/letsencrypt/live/www.takkyuuplayer.com/privkey.pem"
     }
-  },
-  "supervisor": {
-    "app_name": "homepage",
-    "command": "/usr/local/anyenv/envs/rbenv/shims/bundle exec -- unicorn -c unicorn.rb -E production",
-    "directory": "/workspace/deployment/homepage/current"
   }
 }
