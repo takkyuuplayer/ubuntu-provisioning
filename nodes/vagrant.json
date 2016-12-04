@@ -1,16 +1,25 @@
 {
-    "user": {
-        "name": "ubuntu",
-        "group": "contentsuser"
-    },
-    "anyenv": {
-        "anyenv_root": "/usr/local/anyenv",
-        "anyenvrc_file": "/usr/local/etc/anyenvrc",
-        "install_versions": {
-            "ndenv": ["v6.9.1"],
-            "phpenv": ["7.0.2"],
-            "plenv": ["5.22.0"],
-            "rbenv": ["2.3.0"]
-        }
+  "user": {
+    "name": "ubuntu",
+    "group": "contentsuser",
+    "linger": true
+  },
+  "anyenv": {
+    "anyenv_root": "/usr/local/anyenv",
+    "anyenvrc_file": "/usr/local/etc/anyenvrc",
+    "install_versions": {
+      "ndenv": [
+        "v6.9.1"
+      ],
+      "phpenv": [
+        "7.0.2"
+      ],
+      "plenv": [
+        "5.22.0"
+      ],
+      "rbenv": [
+        "2.3.0"
+      ]
     }
+  }
 }
