@@ -26,5 +26,8 @@
     "mackerel": {
       "apikey": false
     }
+  },
+  "letsencrypt": {
+    "email": "takkyuuplayer@gmail.com"
   }
 }
