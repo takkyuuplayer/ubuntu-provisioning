@@ -19,3 +19,7 @@ execute 'apt-get dist-upgrade' do
   not_if "test -e /tmp/apt-get-dist-upgrade-#{yyyymmdd}"
 end
 
+execute 'apt autoremove' do
+  command "apt autoremove -y && touch /tmp/apt-autoremove-#{yyyymmdd}"
+  not_if "test -e /tmp/apt-autoremove-#{yyyymmdd}"
+end
