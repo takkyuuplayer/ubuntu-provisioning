@@ -22,6 +22,8 @@ libjemalloc-dev
 libjpeg-dev
 libltdl-dev
 libmcrypt-dev
+libncurses5-dev
+libncursesw5-dev
 libpng-dev
 libpspell-dev
 libreadline-dev
