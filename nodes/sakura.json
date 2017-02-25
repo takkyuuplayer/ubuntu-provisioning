@@ -1,13 +1,19 @@
 {
   "user": {
     "name": "takkyuuplayer",
-    "group": "contentsuser"
+    "group": "contentsuser",
+    "linger": true
+  },
+  "crontab": {
+    "email": "takkyuuplayer@gmail.com"
   },
   "anyenv": {
     "anyenv_root": "/usr/local/anyenv",
     "anyenvrc_file": "/usr/local/etc/anyenvrc",
     "install_versions": {
-      "rbenv": ["2.3.0"]
+      "rbenv": [
+        "2.3.0"
+      ]
     }
   },
   "proxy": {
@@ -19,9 +25,12 @@
       "ssl_certificate_key": "/etc/letsencrypt/live/www.takkyuuplayer.com/privkey.pem"
     }
   },
-  "supervisor": {
-    "app_name": "homepage",
-    "command": "/usr/local/anyenv/envs/rbenv/shims/bundle exec -- unicorn -c unicorn.rb -E production",
-    "directory": "/workspace/deployment/homepage/current"
+  "monitor": {
+    "mackerel": {
+      "apikey": false
+    }
+  },
+  "letsencrypt": {
+    "email": "takkyuuplayer@gmail.com"
   }
 }

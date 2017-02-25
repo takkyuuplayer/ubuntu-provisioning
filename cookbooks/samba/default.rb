@@ -18,8 +18,8 @@ end
 execute 'prepare smbpasswd' do
   command <<-COMMAND
 smbpasswd -a ubuntu<<EOF
-ubuntu
-ubuntu
+vagrant
+vagrant
 EOF
   COMMAND
 end
