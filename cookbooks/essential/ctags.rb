@@ -1,6 +1,6 @@
 git '/tmp/ctags' do
   repository 'https://github.com/universal-ctags/ctags.git'
-  not_if 'test -f /usr/local/bin/ctags'
+  not_if 'test -f /tmp/ctags'
 end
 
 execute 'Install universal-ctags' do
