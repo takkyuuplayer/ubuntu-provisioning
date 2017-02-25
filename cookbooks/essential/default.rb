@@ -1,5 +1,6 @@
 %w(
 curl
+direnv
 emacs
 git
 git-core
