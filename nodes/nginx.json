@@ -1,25 +1,34 @@
 {
   "user": {
     "name": "vagrant",
-    "group": "contentsuser"
-  },
-  "php": {
-    "app_name": "php",
-    "fqdn": "php.takkyuuplayer.vagrant",
-    "ssl": {
-      "ssl_certificate": "/etc/ssl/private/server.crt",
-      "ssl_certificate_key": "/etc/ssl/private/server.key"
-    }
-  },
-  "proxy": {
-    "app_name": "proxy",
-    "fqdn": "proxy.takkyuuplayer.vagrant",
-    "port": 8000
+    "group": "contentsuser",
+    "linger": true
   },
   "nginx": {
     "ssl": {
-      "ssl_certificate": "/etc/ssl/private/server.crt",
-      "ssl_certificate_key": "/etc/ssl/private/server.key"
-    }
+      "crt": "/etc/ssl/private/vagrant.crt",
+      "key": "/etc/ssl/private/vagrant.key"
+    },
+    "virtual_hosts": [
+      {
+        "app_name": "proxy",
+        "template": "proxy",
+        "fqdn": "proxy.takkyuuplayer.vagrant",
+        "port": 4567,
+        "ssl": {
+          "crt": "/etc/ssl/private/vagrant.crt",
+          "key": "/etc/ssl/private/vagrant.key"
+        }
+      },
+      {
+        "app_name": "php",
+        "template": "php",
+        "fqdn": "php.takkyuuplayer.vagrant",
+        "ssl": {
+          "crt": "/etc/ssl/private/vagrant.crt",
+          "key": "/etc/ssl/private/vagrant.key"
+        }
+      }
+    ]
   }
 }

@@ -9,7 +9,10 @@ sakura:
 vagrant:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./roles/common.rb ./roles/vagrant.rb
 
-vagrant-web:
+vagrant-nginx:
+	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/nginx.json ./roles/web.rb
+
+vagrant-homepage:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant-homepage.json ./roles/web.rb
 
 help:

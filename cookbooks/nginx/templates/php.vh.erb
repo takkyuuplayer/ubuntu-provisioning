@@ -1,32 +1,31 @@
 server {
     listen       80;
-    server_name <%= @app_name %>.takkyuuplayer.vagrant;
-    index       index.php index.html index.htm;
-    root /web/<%= @app_name %>;
-    charset     utf-8;
-    access_log  /var/log/nginx/vh/<%= @app_name %>-access.local.log;
-    error_log   /var/log/nginx/vh/<%= @app_name %>-error.local.log;
+    server_name  <%= @fqdn %>;
+    access_log  /var/log/nginx/vh/<%= @fqdn %>.access.log;
+    error_log   /var/log/nginx/vh/<%= @fqdn %>.error.log;
 
-    location ~ \.php$ {
-       fastcgi_pass   unix:/var/run/php5-fpm.sock;
-       fastcgi_index  index.php;
-       fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-       include        fastcgi_params;
+    location ~ \.wellknown {
+        root /web/<%= @fqdn %>/public;
+        allow all;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
     }
 }
 
 <% if @ssl %>
 server {
-    listen       443 ssl http2 default_server;
+    listen       443 ssl http2;
     server_name  <%= @fqdn %>;
     index       index.php index.html index.htm;
-    root /web/<%= @app_name %>;
+    root /web/<%= @fqdn %>/public;
     charset     utf-8;
-    access_log  /var/log/nginx/vh/<%= @app_name %>-access.local.log;
-    error_log   /var/log/nginx/vh/<%= @app_name %>-error.local.log;
+    access_log  /var/log/nginx/vh/<%= @fqdn %>_ssl.access.log;
+    error_log   /var/log/nginx/vh/<%= @fqdn %>_ssl.error.log;
 
-    ssl_certificate      <%= @ssl[:ssl_certificate] %>;
-    ssl_certificate_key  <%= @ssl[:ssl_certificate_key] %>;
+    ssl_certificate      <%= @ssl[:crt] %>;
+    ssl_certificate_key  <%= @ssl[:key] %>;
 
     ssl_session_cache    shared:SSL:1m;
     ssl_session_timeout  5m;
@@ -36,7 +35,7 @@ server {
 
 
     location ~ \.php$ {
-       fastcgi_pass   unix:/var/run/php5-fpm.sock;
+       fastcgi_pass   unix:/var/run/php/php7.0-fpm.sock;
        fastcgi_index  index.php;
        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
        include        fastcgi_params;
