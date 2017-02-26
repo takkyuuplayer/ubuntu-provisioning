@@ -1,9 +1,19 @@
-template "#{node[:nginx][:ssl][:ssl_certificate]}" do
-  source "templates/server.crt"
+directory File.dirname(node[:nginx][:ssl][:key]) do
+  action :create
+  mode   "0700"
+end
+
+remote_file node[:nginx][:ssl][:key] do
+  source "files/server.key"
   action :create
 end
 
-template "#{node[:nginx][:ssl][:ssl_certificate_key]}" do
-  source "templates/server.key"
+directory File.dirname(node[:nginx][:ssl][:crt]) do
+  action :create
+  mode   "0700"
+end
+
+remote_file node[:nginx][:ssl][:crt] do
+  source "files/server.crt"
   action :create
 end

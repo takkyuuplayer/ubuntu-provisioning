@@ -4,9 +4,22 @@
     "group": "contentsuser",
     "linger": true
   },
-  "proxy": {
-    "app_name": "homepage",
-    "fqdn": "homepage.takkyuuplayer.vagrant",
-    "port": 4567
+  "nginx": {
+    "ssl": {
+      "crt": "/etc/ssl/private/vagrant.crt",
+      "key": "/etc/ssl/private/vagrant.key"
+    },
+    "virtual_hosts": [
+      {
+        "app_name": "homepage",
+        "fqdn": "homepage.takkyuuplayer.vagrant",
+        "port": 4567,
+        "template": "proxy",
+        "ssl": {
+          "crt": "/etc/ssl/private/vagrant.crt",
+          "key": "/etc/ssl/private/vagrant.key"
+        }
+      }
+    ]
   }
 }
