@@ -16,14 +16,19 @@
       ]
     }
   },
-  "proxy": {
-    "app_name": "homepage",
-    "fqdn": "www.takkyuuplayer.com",
-    "port": 4567,
-    "ssl": {
-      "ssl_certificate": "/etc/letsencrypt/live/www.takkyuuplayer.com/fullchain.pem",
-      "ssl_certificate_key": "/etc/letsencrypt/live/www.takkyuuplayer.com/privkey.pem"
-    }
+  "nginx": {
+    "virtual_hosts": [
+      {
+        "app_name": "homepage",
+        "fqdn": "www.takkyuuplayer.com",
+        "port": 4567,
+        "template": "proxy",
+        "ssl": {
+          "crt": "/etc/letsencrypt/live/www.takkyuuplayer.com/fullchain.pem",
+          "key": "/etc/letsencrypt/live/www.takkyuuplayer.com/privkey.pem"
+        }
+      }
+    ]
   },
   "monitor": {
     "mackerel": {
