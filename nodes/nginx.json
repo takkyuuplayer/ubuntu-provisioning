@@ -28,6 +28,16 @@
           "crt": "/etc/ssl/private/vagrant.crt",
           "key": "/etc/ssl/private/vagrant.key"
         }
+      },
+      {
+        "app_name": "spa",
+        "template": "spa",
+        "fqdn": "spa.takkyuuplayer.vagrant",
+        "port": 5000,
+        "ssl": {
+          "crt": "/etc/ssl/private/vagrant.crt",
+          "key": "/etc/ssl/private/vagrant.key"
+        }
       }
     ]
   }

@@ -1,0 +1,50 @@
+upstream <%= @app_name %>-backend {
+    server 127.0.0.1:<%= @port %>;
+}
+
+server {
+    listen       80;
+    server_name  <%= @fqdn %>;
+
+    location ~ \.wellknown {
+        root /web/<%= @fqdn %>/public;
+        allow all;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+<% if @ssl %>
+server {
+    listen       443 ssl http2;
+    server_name  <%= @fqdn %>;
+
+    ssl_certificate      <%= @ssl[:crt] %>;
+    ssl_certificate_key  <%= @ssl[:key] %>;
+
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
+
+    ssl_ciphers AESGCM:HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
+
+    location /api/ {
+        proxy_redirect off;
+
+        proxy_set_header Host               $host;
+        proxy_set_header X-Real-IP          $remote_addr;
+        proxy_set_header X-Forwarded-Host   $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+
+       proxy_pass http://<%= @app_name %>-backend;
+    }
+
+    location / {
+        root /web/<%= @fqdn %>/public;
+        try_files $uri /index.html;
+    }
+}
+<% end %>
