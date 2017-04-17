@@ -24,7 +24,7 @@ end
   end
 end
 
-%w(/var/log/nginx/vh /var/cache/nginx).each do |dir|
+%w(/var/cache/nginx).each do |dir|
   directory dir do
     action :create
     owner "www-data"
@@ -45,4 +45,12 @@ directory "/var/cache/nginx" do
   owner "www-data"
   group "www-data"
   mode "775"
+end
+
+template "/etc/nginx/conf.d/log_format.conf" do
+  mode "644"
+  owner 'root'
+  group 'root'
+  action :create
+  notifies :restart, 'service[nginx]'
 end
