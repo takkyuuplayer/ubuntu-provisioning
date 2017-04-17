@@ -54,3 +54,10 @@ template "/etc/nginx/conf.d/log_format.conf" do
   action :create
   notifies :restart, 'service[nginx]'
 end
+
+template "/etc/logrotate.d/nginx" do
+  mode "644"
+  owner 'root'
+  group 'root'
+  action :create
+end
