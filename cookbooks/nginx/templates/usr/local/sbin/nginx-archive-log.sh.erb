@@ -1,0 +1,24 @@
+umask 0002;
+
+export AWS_ACCESS_KEY_ID=<%= @aws_access_key_id %>
+export AWS_SECRET_ACCESS_KEY=<%= @aws_secret_access_key %>
+export AWS_DEFAULT_REGION=<%= @aws_default_region %>
+
+BUCKET_PATH="s3://<%= @log_archive_s3_bucket %>"
+HOST=`hostname`
+ARCHIVE_DIR=/tmp/nginx_log_archive
+NGINX_LOG_DIR=/var/log/nginx
+TARGET_DATE=`date '+%Y%m%d' -d '1days ago'`
+TARGET_DATE_SLASH=`date '+%Y/%m/%d' -d '1days ago'`
+
+mkdir -p $ARCHIVE_DIR
+cd $ARCHIVE_DIR
+
+mkdir -p $ARCHIVE_DIR
+cd $ARCHIVE_DIR
+
+tar zcvf $HOST-$TARGET_DATE.tar.gz $NGINX_LOG_DIR/$TARGET_DATE_SLASH
+aws s3 sync . $BUCKET_PATH/$HOST
+
+find $NGINX_LOG_DIR -mtime +7 -exec rm -rf {} \;
+find $ARCHIVE_DIR -mtime +7 -exec rm -rf {} \;
