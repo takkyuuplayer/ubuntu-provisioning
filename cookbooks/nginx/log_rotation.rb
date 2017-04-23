@@ -9,30 +9,40 @@ template '/etc/nginx/logrotate.conf' do
   action :create
 end
 
-template "/usr/local/sbin/nginx-archive-log.sh" do
-  mode "500"
-  owner 'root'
-  group 'root'
-  action :create
-  variables({
-    :aws_access_key_id => node[:nginx][:log_rotation][:aws_access_key_id],
-    :aws_secret_access_key => node[:nginx][:log_rotation][:aws_secret_access_key],
-    :aws_default_region => node[:nginx][:log_rotation][:aws_default_region],
-    :log_archive_s3_bucket => node[:nginx][:log_rotation][:s3_bucket],
-  })
-end
+if node[:nginx].has_key?(:log_archive) then
+  remote_directory '/root/.aws' do
+    action :create
+    mode "700"
+    owner "root"
+    group "root"
+    source "../../submodules/credentials/files/root/.aws"
+  end
 
-file "/etc/cron.d/nginx-archive-log" do
-  owner 'root'
-  group 'root'
-  mode  '644'
-  content <<-CRONTAB
+  template "/usr/local/sbin/nginx-archive-log.sh" do
+    mode "544"
+    owner 'root'
+    group 'root'
+    action :create
+    variables({
+      :aws_profile => node[:nginx][:log_archive][:aws_profile],
+      :s3_bucket => node[:nginx][:log_archive][:s3_bucket],
+    })
+  end
+
+  file "/etc/cron.d/nginx-archive-log" do
+    owner 'root'
+    group 'root'
+    mode  '644'
+    content <<-CRONTAB
 SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
 HOME=/
 
 # archive/transfer/remove webserver log file
-30 6 * * * root $SHELL -l /usr/local/sbin/archive_log.sh > /dev/null
-  CRONTAB
+0 0 * * * root /usr/sbin/logrotate /etc/nginx/logrotate.conf > /dev/null
+30 1 * * * root $SHELL -l /usr/local/sbin/nginx-archive-log.sh > /dev/null
+CRONTAB
+  end
 end
+
