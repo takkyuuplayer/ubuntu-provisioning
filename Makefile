@@ -18,5 +18,8 @@ vagrant-homepage:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant-homepage.json ./roles/web.rb
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./submodules/credentials/nodes/log_rotation.json ./cookbooks/nginx/log_rotation.rb
 
+vagrant-docker:
+	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./cookbooks/docker/default.rb
+
 help:
 	cat Makefile

@@ -9,7 +9,7 @@ server {
     access_log  /var/log/nginx/<%= @fqdn %>.access.log ltsv;
     error_log   /var/log/nginx/<%= @fqdn %>.error.log;
 
-    location ~ \.wellknown {
+    location /.well-known/ {
         root /web/<%= @fqdn %>/public;
         allow all;
     }
