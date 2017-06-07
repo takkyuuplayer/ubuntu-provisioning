@@ -10,6 +10,9 @@ jobs:
       - run: uname -a
       - run: env | sort
 
+      - restore_cache:
+          key: anyenv-cache
+
       - run: apt-get update -y
       - run: apt-get install -y sudo
       - run: apt-get install -y ruby2.3 ruby2.3-dev git make
@@ -19,3 +22,9 @@ jobs:
       - run: make
       - run: make circle
       - run: make docker
+
+      - save_cache:
+          key: anyenv-cache
+          paths:
+            - /usr/local/anyenv
+            - /usr/local/etc/anyenvrc

@@ -1,8 +1,7 @@
 {
   "user": {
     "name": "ubuntu",
-    "group": "contentsuser",
-    "linger": true
+    "group": "contentsuser"
   },
   "crontab": {
     "email": "takkyuuplayer@gmail.com"
