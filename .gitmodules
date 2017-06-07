@@ -1,0 +1,3 @@
+[submodule "submodules/credentials"]
+	path = submodules/credentials
+	url = git@bitbucket.org:takkyuuplayer/ubuntu-provisioning-credentials.git

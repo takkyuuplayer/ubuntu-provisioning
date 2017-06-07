@@ -2,6 +2,7 @@ all: setup
 
 setup:
 	bundle install
+	git submodule update --init
 
 sakura:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/sakura.json ./roles/common.rb ./roles/sakura.rb

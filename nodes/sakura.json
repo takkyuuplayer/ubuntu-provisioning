@@ -28,7 +28,11 @@
           "key": "/etc/letsencrypt/live/www.takkyuuplayer.com/privkey.pem"
         }
       }
-    ]
+    ],
+    "log_archive": {
+      "aws_profile": "s3-writer",
+      "s3_bucket": "tp-nginx-log-archive"
+    }
   },
   "monitor": {
     "mackerel": {
