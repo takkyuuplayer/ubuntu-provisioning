@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/circleci
+    docker:
+      - image: ubuntu:xenial
+    steps:
+      - run: cat /etc/lsb-release
+      - run: uname -a
+      - run: env | sort
+
+      - run: apt-get update -y
+      - run: apt-get install -y sudo
+      - run: apt-get install -y ruby2.3 ruby2.3-dev make
+      - run: gem2.3 i bundler --no-rdoc --no-ri
+
+      - checkout
+      - run: make
+      - run: make vagrant
+      - run: make vagrant-nginx
+      - run: make vagrant-homepage
+      - run: make vagrant-docker
