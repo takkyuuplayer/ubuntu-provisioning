@@ -15,6 +15,9 @@ vagrant-homepage:
 vagrant-docker:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./cookbooks/docker/default.rb
 
+circle:
+	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./roles/common.rb ./roles/circle.rb
+
 help:
 	cat Makefile
 

@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    machie: true
     working_directory: ~/circleci
     docker:
       - image: ubuntu:xenial
@@ -11,12 +12,10 @@ jobs:
 
       - run: apt-get update -y
       - run: apt-get install -y sudo
-      - run: apt-get install -y ruby2.3 ruby2.3-dev make
+      - run: apt-get install -y ruby2.3 ruby2.3-dev git make
       - run: gem2.3 i bundler --no-rdoc --no-ri
 
       - checkout
       - run: make
-      - run: make vagrant
-      - run: make vagrant-nginx
-      - run: make vagrant-homepage
-      - run: make vagrant-docker
+      - run: make circle
+      - run: make docker
