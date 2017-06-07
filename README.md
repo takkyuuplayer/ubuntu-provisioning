@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/takkyuuplayer/ubuntu-provisioning.svg?style=svg)](https://circleci.com/gh/takkyuuplayer/ubuntu-provisioning)
+
 # ubuntu-provisioning
 
 Provisioner for Ubuntu 16.04 LTS
