@@ -1,8 +1,4 @@
-all: setup
-
-setup:
-	bundle install
-	git submodule update --init
+setup: vendor/bundle submodules
 
 sakura:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/sakura.json ./roles/common.rb ./roles/sakura.rb
@@ -19,5 +15,18 @@ vagrant-homepage:
 vagrant-docker:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./cookbooks/docker/default.rb
 
+circle:
+	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./roles/common.rb ./roles/circle.rb
+
 help:
 	cat Makefile
+
+.PHONY: vendor/bundle submodules
+
+vendor/bundle:
+	bundle install
+
+submodules:
+	@if [ ! "$(CIRCLE_BUILD_NUM)" ] ; then \
+		git submodule update --init; \
+	fi;

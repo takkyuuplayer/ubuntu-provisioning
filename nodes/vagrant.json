@@ -1,8 +1,7 @@
 {
   "user": {
     "name": "ubuntu",
-    "group": "contentsuser",
-    "linger": true
+    "group": "contentsuser"
   },
   "crontab": {
     "email": "takkyuuplayer@gmail.com"
@@ -13,9 +12,6 @@
     "install_versions": {
       "ndenv": [
         "v6.9.1"
-      ],
-      "phpenv": [
-        "7.0.2"
       ],
       "plenv": [
         "5.22.0"
