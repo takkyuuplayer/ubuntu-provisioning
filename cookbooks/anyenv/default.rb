@@ -71,4 +71,8 @@ node['anyenv']['install_versions'].each do |env, versions|
       #{env} versions | grep '* #{versions.first}'
     CMD
   end
+
+  if File.exist?("./cookbooks/anyenv/#{env}.rb") then
+    include_recipe "./#{env}.rb"
+  end
 end
