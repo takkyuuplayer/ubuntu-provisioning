@@ -10,8 +10,8 @@ jobs:
       - run: uname -a
       - run: env | sort
 
-      - restore_cache:
-          key: anyenv-cache
+      #- restore_cache:
+      #-   key: anyenv-cache
 
       - run: apt-get update -y
       - run: apt-get install -y sudo
@@ -22,8 +22,8 @@ jobs:
       - run: make
       - run: make circle
 
-      - save_cache:
-          key: anyenv-cache
-          paths:
-            - /usr/local/anyenv
-            - /usr/local/etc/anyenvrc
+      #- save_cache:
+      #-   key: anyenv-cache
+      #-   paths:
+      #-     - /usr/local/anyenv
+      #-     - /usr/local/etc/anyenvrc
