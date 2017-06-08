@@ -27,6 +27,6 @@ vendor/bundle:
 	bundle install
 
 submodules:
-	@if [ ! "$(CIRCLE_BUILD_NUM)" ] ; then \
+	@if [ "$(CIRCLE_BUILD_NUM)" ] ; then \
 		git submodule update --init; \
 	fi;
