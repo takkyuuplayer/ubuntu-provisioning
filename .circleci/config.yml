@@ -21,7 +21,6 @@ jobs:
       - checkout
       - run: make
       - run: make circle
-      - run: make docker
 
       - save_cache:
           key: anyenv-cache
