@@ -2,14 +2,12 @@
 apache2-utils
 curl
 direnv
-emacs
 git
 git-core
 htop
 jq
 locales
 sqlite3
-tmux
 vim
 wget
 whois
