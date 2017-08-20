@@ -12,6 +12,6 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
 HOME=/
 
-15 3,15 * * * /usr/bin/letsencrypt renew -n --agree-tos
+15 3,15 * * * service nginx stop && /usr/bin/letsencrypt renew --agree-tos --noninteractive && service nginx restart
 CRONTAB
 end
