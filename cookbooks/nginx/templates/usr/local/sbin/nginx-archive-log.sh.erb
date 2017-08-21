@@ -16,5 +16,6 @@ cd $ARCHIVE_DIR
 tar -C $NGINX_LOG_DIR -czvf $HOST-$TARGET_DATE.tar.gz $TARGET_DATE_SLASH
 aws s3 sync . $BUCKET_PATH/$HOST --profile <%= @aws_profile %>
 
-find $NGINX_LOG_DIR -mtime +7 -exec rm -rf {} \;
+find $NGINX_LOG_DIR -type f -mtime +7 -exec rm -rf {} \;
+find $NGINX_LOG_DIR -type d -empty -mtime +7 -exec rm -rf {} \;
 find $ARCHIVE_DIR -mtime +7 -exec rm -rf {} \;
