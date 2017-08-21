@@ -1,15 +1,15 @@
 %w(
+ack-grep
 apache2-utils
 curl
 direnv
-emacs
+fish
 git
 git-core
 htop
 jq
 locales
 sqlite3
-tmux
 vim
 wget
 whois
@@ -20,5 +20,3 @@ zsh
     action :install
   end
 end
-
-include_recipe 'neovim.rb'

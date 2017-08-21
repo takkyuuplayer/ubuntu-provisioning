@@ -13,7 +13,7 @@ vagrant-homepage:
 	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant-homepage.json ./roles/web.rb
 
 circle:
-	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./roles/common.rb ./roles/circle.rb
+	sudo env "PATH=$$PATH" bundle exec -- itamae local -j ./nodes/vagrant.json ./roles/common.rb
 
 help:
 	cat Makefile
