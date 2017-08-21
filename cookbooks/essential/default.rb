@@ -1,7 +1,9 @@
 %w(
+ack-grep
 apache2-utils
 curl
 direnv
+fish
 git
 git-core
 htop
@@ -18,5 +20,3 @@ zsh
     action :install
   end
 end
-
-include_recipe 'neovim.rb'
