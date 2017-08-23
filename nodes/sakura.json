@@ -19,6 +19,9 @@
   "tmux": {
     "version": "2.5"
   },
+  "fzf": {
+    "version": "0.16.11"
+  },
   "nginx": {
     "virtual_hosts": [
       {

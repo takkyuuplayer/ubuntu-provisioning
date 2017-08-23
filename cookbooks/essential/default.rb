@@ -10,6 +10,7 @@ htop
 jq
 locales
 sqlite3
+tree
 vim
 wget
 whois
@@ -20,3 +21,5 @@ zsh
     action :install
   end
 end
+
+include_recipe "./fzf.rb"
