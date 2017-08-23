@@ -10,5 +10,14 @@
     "compose": {
       "version": "1.15.0"
     }
+  },
+  "anyenv": {
+    "anyenv_root": "/usr/local/anyenv",
+    "anyenvrc_file": "/usr/local/etc/anyenvrc",
+    "install_versions": {
+      "goenv": [
+        "1.8.3"
+      ]
+    }
   }
 }
