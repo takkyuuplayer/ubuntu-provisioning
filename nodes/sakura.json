@@ -16,6 +16,9 @@
       ]
     }
   },
+  "tmux": {
+    "version": "2.5"
+  },
   "nginx": {
     "virtual_hosts": [
       {
