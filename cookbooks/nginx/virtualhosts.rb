@@ -21,17 +21,11 @@ node[:nginx][:virtual_hosts].each do |conf|
     })
   end
 
-  link "/etc/nginx/sites-enabled/#{conf[:fqdn]}.vh" do
-    action :create
-    notifies :restart, 'service[nginx]'
-    to "/etc/nginx/sites-available/#{conf[:fqdn]}.vh"
-  end
-
   if node.key?(:letsencrypt) then
     execute "Issue certification for #{conf[:fqdn]}" do
       command <<-CMD
-        rm /etc/nginx/sites-enabled/#{conf[:fqdn]}.vh
-        service nginx restart
+        rm -rf /etc/nginx/sites-enabled/#{conf[:fqdn]}.vh
+        service nginx stop
         letsencrypt certonly --standalone -d #{conf[:fqdn]} -m #{node[:letsencrypt][:email]} --agree-tos --keep-until-expiring
         chmod -R a+r /etc/letsencrypt/live/#{conf[:fqdn]}
       CMD
@@ -40,4 +34,9 @@ node[:nginx][:virtual_hosts].each do |conf|
     end
   end
 
+  link "/etc/nginx/sites-enabled/#{conf[:fqdn]}.vh" do
+    action :create
+    notifies :restart, 'service[nginx]'
+    to "/etc/nginx/sites-available/#{conf[:fqdn]}.vh"
+  end
 end
