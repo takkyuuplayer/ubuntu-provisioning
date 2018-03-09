@@ -2,10 +2,6 @@
 ack-grep
 apache2-utils
 curl
-direnv
-fish
-git
-git-core
 htop
 jq
 locales
@@ -23,3 +19,4 @@ zsh
 end
 
 include_recipe "./fzf.rb"
+include_recipe "./git.rb"
