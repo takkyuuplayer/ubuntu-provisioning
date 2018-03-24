@@ -3,7 +3,7 @@
     "upgrade": false
   },
   "user": {
-    "name": "ubuntu",
+    "name": "vagrant",
     "group": "contentsuser"
   },
   "tmux": {
