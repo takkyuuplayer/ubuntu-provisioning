@@ -34,9 +34,10 @@ end
 end
 
 %w(
-  /etc/nginx/nginx.conf
   /etc/nginx/conf.d/log_format.conf
   /etc/nginx/conf.d/ssl.conf
+  /etc/nginx/nginx.conf
+  /etc/nginx/sites-available/default
 ).each do |conf|
   template conf do
     mode "644"
