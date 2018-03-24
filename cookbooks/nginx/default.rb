@@ -34,6 +34,7 @@ end
 end
 
 %w(
+  /etc/nginx/nginx.conf
   /etc/nginx/conf.d/log_format.conf
   /etc/nginx/conf.d/ssl.conf
 ).each do |conf|
