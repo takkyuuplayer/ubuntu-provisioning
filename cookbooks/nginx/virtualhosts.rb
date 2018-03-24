@@ -21,22 +21,17 @@ node[:nginx][:virtual_hosts].each do |conf|
     })
   end
 
-  if node.key?(:letsencrypt) then
-    execute "Issue certification for #{conf[:fqdn]}" do
-      command <<-CMD
-        rm -rf /etc/nginx/sites-enabled/#{conf[:fqdn]}.vh
-        service nginx stop
-        letsencrypt certonly --standalone -d #{conf[:fqdn]} -m #{node[:letsencrypt][:email]} --agree-tos --keep-until-expiring
-        chmod -R a+r /etc/letsencrypt/live/#{conf[:fqdn]}
-      CMD
-      notifies :restart, 'service[nginx]'
-      only_if "which letsencrypt"
-    end
-  end
-
   link "/etc/nginx/sites-enabled/#{conf[:fqdn]}.vh" do
     action :create
     notifies :restart, 'service[nginx]'
     to "/etc/nginx/sites-available/#{conf[:fqdn]}.vh"
+  end
+
+  execute "Issue certification for #{conf[:fqdn]}" do
+    command <<-CMD
+      /usr/local/bin/certbot-auto --nginx
+    CMD
+    notifies :restart, 'service[nginx]'
+    only_if "test -f /usr/local/bin/certbot-auto"
   end
 end
