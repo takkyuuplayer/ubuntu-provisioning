@@ -1,4 +1,7 @@
 {
+  "essential": {
+    "upgrade": false
+  },
   "user": {
     "name": "takkyuuplayer",
     "group": "contentsuser",
