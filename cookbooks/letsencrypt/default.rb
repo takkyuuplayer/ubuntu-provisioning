@@ -4,7 +4,7 @@ end
 
 http_request "/usr/local/bin/certbot-auto" do
   url "https://dl.eff.org/certbot-auto"
-  mode 775
+  mode '775'
 end
 
 file "/etc/cron.d/renew-letsencrypt-certification" do
