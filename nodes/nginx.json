@@ -6,8 +6,8 @@
   },
   "nginx": {
     "ssl": {
-      "crt": "/etc/ssl/private/vagrant.crt",
-      "key": "/etc/ssl/private/vagrant.key"
+      "crt_path": "/etc/ssl/private/vagrant.crt",
+      "key_path": "/etc/ssl/private/vagrant.key"
     },
     "virtual_hosts": [
       {
@@ -25,8 +25,8 @@
         "template": "php",
         "fqdn": "php.takkyuuplayer.vagrant",
         "ssl": {
-          "crt": "/etc/ssl/private/vagrant.crt",
-          "key": "/etc/ssl/private/vagrant.key"
+          "crt_path": "/etc/ssl/private/vagrant.crt",
+          "key_path": "/etc/ssl/private/vagrant.key"
         }
       },
       {
@@ -35,8 +35,8 @@
         "fqdn": "spa.takkyuuplayer.vagrant",
         "port": 5000,
         "ssl": {
-          "crt": "/etc/ssl/private/vagrant.crt",
-          "key": "/etc/ssl/private/vagrant.key"
+          "crt_path": "/etc/ssl/private/vagrant.crt",
+          "key_path": "/etc/ssl/private/vagrant.key"
         }
       }
     ]

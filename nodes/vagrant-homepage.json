@@ -16,8 +16,8 @@
         "port": 4567,
         "template": "proxy",
         "ssl": {
-          "crt": "/etc/ssl/private/vagrant.crt",
-          "key": "/etc/ssl/private/vagrant.key"
+          "crt_path": "/etc/ssl/private/vagrant.crt",
+          "key_path": "/etc/ssl/private/vagrant.key"
         }
       }
     ]

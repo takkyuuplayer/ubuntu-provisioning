@@ -30,8 +30,8 @@
         "port": 4567,
         "template": "proxy",
         "ssl": {
-          "crt": "/etc/letsencrypt/live/www.takkyuuplayer.com/fullchain.pem",
-          "key": "/etc/letsencrypt/live/www.takkyuuplayer.com/privkey.pem"
+          "crt_path": "/etc/letsencrypt/live/www.takkyuuplayer.com/fullchain.pem",
+          "key_path": "/etc/letsencrypt/live/www.takkyuuplayer.com/privkey.pem"
         }
       }
     ],

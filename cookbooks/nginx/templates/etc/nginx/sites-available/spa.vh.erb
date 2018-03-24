@@ -28,8 +28,8 @@ server {
     access_log  /var/log/nginx/<%= @fqdn %>_ssl.access.log ltsv;
     error_log   /var/log/nginx/<%= @fqdn %>_ssl.error.log;
 
-    ssl_certificate      <%= @ssl[:crt] %>;
-    ssl_certificate_key  <%= @ssl[:key] %>;
+    ssl_certificate      <%= @ssl[:crt_path] %>;
+    ssl_certificate_key  <%= @ssl[:key_path] %>;
 
     ssl_session_cache    shared:SSL:1m;
     ssl_session_timeout  5m;
