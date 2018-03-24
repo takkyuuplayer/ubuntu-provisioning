@@ -33,24 +33,15 @@ end
   end
 end
 
-directory "/var/cache/nginx" do
-  action :create
-  owner "www-data"
-  group "www-data"
-  mode "775"
-end
-
-directory "/var/cache/nginx" do
-  action :create
-  owner "www-data"
-  group "www-data"
-  mode "775"
-end
-
-template "/etc/nginx/conf.d/log_format.conf" do
-  mode "644"
-  owner 'root'
-  group 'root'
-  action :create
-  notifies :restart, 'service[nginx]'
+%w(
+  /etc/nginx/conf.d/log_format.conf
+  /etc/nginx/conf.d/ssl.conf
+).each do |conf|
+  template conf do
+    mode "644"
+    owner 'root'
+    group 'root'
+    action :create
+    notifies :restart, 'service[nginx]'
+  end
 end
