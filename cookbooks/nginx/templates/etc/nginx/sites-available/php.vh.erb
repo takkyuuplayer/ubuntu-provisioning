@@ -1,22 +1,4 @@
 server {
-    listen       80;
-    server_name  <%= @fqdn %>;
-
-    access_log  /var/log/nginx/<%= @fqdn %>.access.log ltsv;
-    error_log   /var/log/nginx/<%= @fqdn %>.error.log;
-
-    location /.well-known/ {
-        root /web/<%= @fqdn %>/public;
-        allow all;
-    }
-
-    location / {
-        return 301 https://$host$request_uri;
-    }
-}
-
-<% if @ssl %>
-server {
     listen       443 ssl http2;
     server_name  <%= @fqdn %>;
 
@@ -37,4 +19,3 @@ server {
        include        fastcgi_params;
     }
 }
-<% end %>
