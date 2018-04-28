@@ -17,7 +17,7 @@ end
 
 execute 'prepare smbpasswd' do
   command <<-COMMAND
-smbpasswd -a ubuntu<<EOF
+smbpasswd -a #{node[:user][:name]}<<EOF
 vagrant
 vagrant
 EOF
