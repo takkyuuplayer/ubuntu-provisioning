@@ -7,32 +7,23 @@
     "group": "contentsuser"
   },
   "tmux": {
-    "version": "2.5"
+    "version": "2.7"
   },
   "fzf": {
-    "version": "0.16.11"
+    "version": "0.17.3"
   },
   "anyenv": {
     "anyenv_root": "/usr/local/anyenv",
     "anyenvrc_file": "/usr/local/etc/anyenvrc",
     "install_versions": {
       "goenv": [
-        "1.9"
+        "1.10.1"
       ]
     }
   },
   "docker": {
     "compose": {
-      "version": "1.15.0"
-    }
-  },
-  "anyenv": {
-    "anyenv_root": "/usr/local/anyenv",
-    "anyenvrc_file": "/usr/local/etc/anyenvrc",
-    "install_versions": {
-      "goenv": [
-        "1.8.3"
-      ]
+      "version": "1.21.1"
     }
   }
 }

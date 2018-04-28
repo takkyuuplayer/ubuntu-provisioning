@@ -1,5 +1,5 @@
-execute "install ghq" do
-  user "ubuntu"
+execute "Install ghq" do
+  user node[:user][:name]
   command <<-CMD
     . #{node[:anyenv][:anyenvrc_file]};
     go get github.com/motemen/ghq
@@ -17,9 +17,8 @@ github.com/nsf/gocode
 github.com/rogpeppe/godef
 golang.org/x/tools/cmd/...
 ).each do |mod|
-  user "ubuntu"
   execute "Install #{mod}" do
-    user "ubuntu"
+    user node[:user][:name]
     command <<-CMD
       . #{node[:anyenv][:anyenvrc_file]};
       go get #{mod}
@@ -34,9 +33,8 @@ end
 %w(
 golang/go
 ).each do |mod|
-  user "ubuntu"
   execute "Install #{mod}" do
-    user "ubuntu"
+    user node[:user][:name]
     command <<-CMD
       . #{node[:anyenv][:anyenvrc_file]};
       $HOME/go/bin/ghq get #{mod}
